@@ -1,6 +1,14 @@
 import React, {ReactElement} from "react";
 import { Menu, Message} from '@arco-design/web-react';
-import {IconCalendar, IconHome} from "@arco-design/web-react/icon";
+import {
+  IconCalendar,
+  IconHome,
+  IconDashboard,
+  IconGift,
+  IconList,
+  IconSettings,
+  IconUser
+} from "@arco-design/web-react/icon";
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
@@ -20,51 +28,44 @@ export default function Aside(): ReactElement {
         }
         style={{ width: '100%' }}
       >
-        <MenuItem key='0_1' disabled>
-          <IconHome />
-          Menu 1
+        <MenuItem key='0_1' >
+          <IconDashboard fontSize={18} />
+          <span>
+          Dashboard
+          </span>
         </MenuItem>
         <MenuItem key='0_2'>
-          <IconCalendar />
-          Menu 2
+          <IconGift fontSize={18} />
+          Data Visualization
         </MenuItem>
         <MenuItem key='0_3'>
-          <IconCalendar />
-          Menu 3
+          <IconList fontSize={18} />
+          List
         </MenuItem>
         <SubMenu
           key='1'
           title={
             <span>
-                  <IconCalendar />
-                  Navigation 1
+                  <IconSettings fontSize={18} />
+              Settings
                 </span>
           }
         >
-          <MenuItem key='1_1'>Menu 1</MenuItem>
-          <MenuItem key='1_2'>Menu 2</MenuItem>
-          <SubMenu key='2' title='Navigation 2'>
-            <MenuItem key='2_1'>Menu 1</MenuItem>
-            <MenuItem key='2_2'>Menu 2</MenuItem>
-          </SubMenu>
-          <SubMenu key='3' title='Navigation 3'>
-            <MenuItem key='3_1'>Menu 1</MenuItem>
-            <MenuItem key='3_2'>Menu 2</MenuItem>
-            <MenuItem key='3_3'>Menu 3</MenuItem>
-          </SubMenu>
+          <MenuItem key='1_1'>Security</MenuItem>
+          <MenuItem key='1_2'>Permissions</MenuItem>
         </SubMenu>
         <SubMenu
           key='4'
           title={
             <span>
-                  <IconCalendar />
-                  Navigation 4
+                  <IconUser fontSize={18} />
+              Profile
                 </span>
           }
         >
-          <MenuItem key='4_1'>Menu 1</MenuItem>
-          <MenuItem key='4_2'>Menu 2</MenuItem>
-          <MenuItem key='4_3'>Menu 3</MenuItem>
+          <MenuItem key='4_1'>Basic</MenuItem>
+          <MenuItem key='4_2'>Social</MenuItem>
+          <MenuItem key='4_3'>Policy</MenuItem>
         </SubMenu>
       </Menu>
     </>
