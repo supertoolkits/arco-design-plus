@@ -1,0 +1,14 @@
+{
+   "locales": ["en", "zh_hans"],
+  "catalogs": [
+    {
+      "path": "web/dashboard/locales/{locale}/messages",
+      "include": ["web/dashboard"]
+    },
+    {
+      "path": "web/frontend/locales/{locale}/messages",
+      "include": ["web/frontend"]
+    }
+  ],
+   "format": "po"
+}

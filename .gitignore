@@ -1,0 +1,15 @@
+/dist
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/public/upload/
+/var/
+/vendor/
+/.idea
+/public/build/
+/node_modules/
+###< symfony/framework-bundle ###
+
