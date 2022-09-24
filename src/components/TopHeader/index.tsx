@@ -1,10 +1,11 @@
 import React, {ReactElement} from "react";
 import styled from "@emotion/styled";
-import { Badge, Button, Input, Menu, Message, Select, Space} from '@arco-design/web-react';
+import {Badge, Button, Dropdown, Input, Menu, Message, Select, Space} from '@arco-design/web-react';
 const MenuItem = Menu.Item;
 import Logo from "../../assets/logo.svg";
 import { IconLanguage, IconNotification, IconMoonFill, IconSunFill, IconSettings} from "@arco-design/web-react/icon";
 import BoringAvatar from "boring-avatars";
+import UserDropDown from "./UserDropDown";
 
 const TopHeaderStyle = styled.div`
   display: flex;
@@ -25,7 +26,9 @@ const TopHeaderStyle = styled.div`
     padding: 0 1rem;
   }
   .search {
-    border-radius: 16px;
+    .arco-input-inner-wrapper {
+      border-radius: 16px;
+    }
   }
   .logo {
     display: block;
@@ -59,13 +62,13 @@ export default function TopHeader(): ReactElement {
       </div>
 
       <div className="right">
-        <Space size={18}>
+        <Space size={18} align="center">
           <Input.Search
             className="search"
             placeholder="Search"
           />
           <Select
-            triggerElement={<Button type="secondary" icon={<IconLanguage />}>Language</Button>}
+            triggerElement={<Button type="secondary" shape="round" icon={<IconLanguage />}>Language</Button>}
             options={[
               { label: '中文', value: 'zh-CN' },
               { label: 'English', value: 'en-US' },
@@ -88,10 +91,14 @@ export default function TopHeader(): ReactElement {
           <Button type="secondary" shape="circle" icon={<IconMoonFill />}></Button>
           <Button type="secondary" shape="circle" icon={<IconSettings />}></Button>
 
-          <BoringAvatar size={32}
-                        name="curry"
-                        variant="marble"
-          />
+          <UserDropDown>
+            <div className="avatar">
+              <BoringAvatar size={40}
+                            name="curry"
+                            variant="marble"
+              />
+            </div>
+          </UserDropDown>
 
         </Space>
       </div>

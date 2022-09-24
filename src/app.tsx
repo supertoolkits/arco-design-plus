@@ -49,13 +49,17 @@ export default function App() {
           </CollapseButton>
         </Sider>
 
-        <Layout style={{padding: '0 20px'}}>
+        <Layout style={{padding: '0 20px', background: 'rgba(0, 0, 0, 0.02)'}}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <Content>Content</Content>
+          <Content style={{
+            background: '#fff', padding: '1rem', border: '1px solid rgba(0, 0, 0, 0.06)',
+            boxShadow: '0 0 3px rgba(0, 0, 0, 0.03)',
+            borderRadius: '5px'
+          }}>Content</Content>
           <Footer>Footer</Footer>
         </Layout>
       </Layout>
