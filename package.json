@@ -8,6 +8,8 @@
     "start": "encore dev-server --port 8010",
     "build:dev": "encore dev build",
     "build:prod": "encore production",
+    "extract": "lingui extract",
+    "compile": "lingui compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

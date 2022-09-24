@@ -2,13 +2,9 @@
    "locales": ["en", "zh_hans"],
   "catalogs": [
     {
-      "path": "web/dashboard/locales/{locale}/messages",
-      "include": ["web/dashboard"]
+      "path": "src/locales/{locale}/messages",
+      "include": ["src"]
     },
-    {
-      "path": "web/frontend/locales/{locale}/messages",
-      "include": ["web/frontend"]
-    }
   ],
    "format": "po"
 }
