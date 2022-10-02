@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {ReactElement, useState} from "react";
 import styled from "@emotion/styled";
 import {Badge, Button, Dropdown, Input, Menu, Message, Select, Space} from '@arco-design/web-react';
 const MenuItem = Menu.Item;
@@ -6,6 +6,7 @@ import Logo from "../../assets/logo.svg";
 import { IconLanguage, IconNotification, IconMoonFill, IconSunFill, IconSettings} from "@arco-design/web-react/icon";
 import BoringAvatar from "boring-avatars";
 import UserDropDown from "./UserDropDown";
+import {EN_US, useAppConfigStore, ZH_HANS} from "../../store/app.config.store";
 
 const TopHeaderStyle = styled.div`
   display: flex;
@@ -41,6 +42,8 @@ const TopHeaderStyle = styled.div`
 
 
 export default function TopHeader(): ReactElement {
+  const appConfig = useAppConfigStore();
+  const [locale, setLocale] = useState<string>(appConfig.locale);
 
   return (
     <TopHeaderStyle>
@@ -70,10 +73,10 @@ export default function TopHeader(): ReactElement {
           <Select
             triggerElement={<Button type="secondary" shape="round" icon={<IconLanguage />}>Language</Button>}
             options={[
-              { label: '中文', value: 'zh-CN' },
-              { label: 'English', value: 'en-US' },
+              { label: '中文', value: 'zh_hans' },
+              { label: 'English', value: 'en' },
             ]}
-            value="en-US"
+            value={locale}
             triggerProps={{
               autoAlignPopupWidth: false,
               autoAlignPopupMinWidth: true,
@@ -81,6 +84,8 @@ export default function TopHeader(): ReactElement {
             }}
             trigger="hover"
             onChange={(value: string) => {
+              setLocale(value);
+              appConfig.switchLang(value);
               Message.info(`Language switch to ${value}`);
             }}
           />
