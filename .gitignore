@@ -1,5 +1,4 @@
 /dist
-###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -12,5 +11,4 @@
 /public/build/
 /node_modules/
 /coverage
-###< symfony/framework-bundle ###
 

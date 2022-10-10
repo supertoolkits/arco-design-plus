@@ -41,6 +41,12 @@ Encore
     template: "./index.html"
   }))
   .addPlugin(new ArcoWebpackPlugin())
+  .addCacheGroup('common', {
+    node_modules: ['react', 'react-dom', 'react-hook-form', '@tanstack']
+  })
+  .addCacheGroup('arco-design', {
+    node_modules: ['@arco-design']
+  });
 ;
 
 if (Encore.isDev()) {
