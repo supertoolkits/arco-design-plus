@@ -19,7 +19,6 @@ const CollapseButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // 位置
   position: absolute;
   bottom: 12px;
   right: 12px;

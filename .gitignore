@@ -11,5 +11,6 @@
 /.idea
 /public/build/
 /node_modules/
+/coverage
 ###< symfony/framework-bundle ###
 
