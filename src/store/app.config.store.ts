@@ -1,25 +1,27 @@
-import create from 'zustand';
+import create from "zustand";
 import { persist } from "zustand/middleware";
 
-export const EN_US = 'en';
-export const ZH_HANS = 'zh_hans';
+export const EN_US = "en";
+export const ZH_HANS = "zh_hans";
 
 export type AppConfig = {
-  locale: string
-  theme: string
-  switchLang: (name: string) => void
-  switchTheme: (name: string) => void
-}
+  locale: string;
+  theme: string;
+  switchLang: (name: string) => void;
+  switchTheme: (name: string) => void;
+};
 
 const appConfigStore = (set: any) => ({
   locale: EN_US,
-  theme: 'light',
-  switchLang: (locale: string) => set({
-    locale,
-  }),
-  switchTheme: (theme: string) => set({
-    theme,
-  }),
+  theme: "light",
+  switchLang: (locale: string) =>
+    set({
+      locale,
+    }),
+  switchTheme: (theme: string) =>
+    set({
+      theme,
+    }),
 });
 
 export const useAppConfigStore = create<AppConfig>()(
@@ -27,5 +29,4 @@ export const useAppConfigStore = create<AppConfig>()(
     name: "app.config",
     getStorage: () => localStorage,
   })
-)
-
+);

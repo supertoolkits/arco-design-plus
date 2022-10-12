@@ -1,12 +1,31 @@
-import React, {ReactElement, useState} from "react";
+import React, { ReactElement, useState } from "react";
 import styled from "@emotion/styled";
-import {Badge, Button, Dropdown, Input, Menu, Message, Select, Space} from '@arco-design/web-react';
+import {
+  Badge,
+  Button,
+  Dropdown,
+  Input,
+  Menu,
+  Message,
+  Select,
+  Space,
+} from "@arco-design/web-react";
 const MenuItem = Menu.Item;
 import Logo from "../../assets/logo.svg";
-import { IconLanguage, IconNotification, IconMoonFill, IconSunFill, IconSettings} from "@arco-design/web-react/icon";
+import {
+  IconLanguage,
+  IconNotification,
+  IconMoonFill,
+  IconSunFill,
+  IconSettings,
+} from "@arco-design/web-react/icon";
 import BoringAvatar from "boring-avatars";
 import UserDropDown from "./UserDropDown";
-import {EN_US, useAppConfigStore, ZH_HANS} from "../../store/app.config.store";
+import {
+  EN_US,
+  useAppConfigStore,
+  ZH_HANS,
+} from "../../store/app.config.store";
 
 const TopHeaderStyle = styled.div`
   display: flex;
@@ -40,7 +59,6 @@ const TopHeaderStyle = styled.div`
   }
 `;
 
-
 export default function TopHeader(): ReactElement {
   const appConfig = useAppConfigStore();
   const [locale, setLocale] = useState<string>(appConfig.locale);
@@ -48,39 +66,35 @@ export default function TopHeader(): ReactElement {
   return (
     <TopHeaderStyle>
       <div className="left">
-        <Menu mode='horizontal' defaultSelectedKeys={['1']}>
-          <MenuItem
-            key='0'
-            style={{ padding: 0, marginRight: 38, }}
-            disabled
-          >
-            <img src={Logo} alt="LOGO" className="logo"  />
+        <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
+          <MenuItem key="0" style={{ padding: 0, marginRight: 38 }} disabled>
+            <img src={Logo} alt="LOGO" className="logo" />
           </MenuItem>
-          <MenuItem key='1'>Home</MenuItem>
-          <MenuItem key='2'>Solution</MenuItem>
-          <MenuItem key='3'>Cloud Service</MenuItem>
-          <MenuItem key='4'>Cooperation</MenuItem>
+          <MenuItem key="1">Home</MenuItem>
+          <MenuItem key="2">Solution</MenuItem>
+          <MenuItem key="3">Cloud Service</MenuItem>
+          <MenuItem key="4">Cooperation</MenuItem>
         </Menu>
-
       </div>
 
       <div className="right">
         <Space size={18} align="center">
-          <Input.Search
-            className="search"
-            placeholder="Search"
-          />
+          <Input.Search className="search" placeholder="Search" />
           <Select
-            triggerElement={<Button type="secondary" shape="round" icon={<IconLanguage />}>Language</Button>}
+            triggerElement={
+              <Button type="secondary" shape="round" icon={<IconLanguage />}>
+                Language
+              </Button>
+            }
             options={[
-              { label: '中文', value: 'zh_hans' },
-              { label: 'English', value: 'en' },
+              { label: "中文", value: "zh_hans" },
+              { label: "English", value: "en" },
             ]}
             value={locale}
             triggerProps={{
               autoAlignPopupWidth: false,
               autoAlignPopupMinWidth: true,
-              position: 'br',
+              position: "br",
             }}
             trigger="hover"
             onChange={(value: string) => {
@@ -91,23 +105,30 @@ export default function TopHeader(): ReactElement {
           />
 
           <Badge count={9} dot>
-            <Button type="secondary" shape="circle" icon={<IconNotification />} />
+            <Button
+              type="secondary"
+              shape="circle"
+              icon={<IconNotification />}
+            />
           </Badge>
-          <Button type="secondary" shape="circle" icon={<IconMoonFill />}></Button>
-          <Button type="secondary" shape="circle" icon={<IconSettings />}></Button>
+          <Button
+            type="secondary"
+            shape="circle"
+            icon={<IconMoonFill />}
+          ></Button>
+          <Button
+            type="secondary"
+            shape="circle"
+            icon={<IconSettings />}
+          ></Button>
 
           <UserDropDown>
             <div className="avatar">
-              <BoringAvatar size={40}
-                            name="curry"
-                            variant="marble"
-              />
+              <BoringAvatar size={40} name="curry" variant="marble" />
             </div>
           </UserDropDown>
-
         </Space>
       </div>
-
     </TopHeaderStyle>
   );
 }

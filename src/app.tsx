@@ -1,13 +1,12 @@
-import React, {useState} from "react";
-import {Breadcrumb, Layout} from '@arco-design/web-react';
-import { IconMenuFold, IconMenuUnfold} from "@arco-design/web-react/icon";
+import React, { useState } from "react";
+import { Breadcrumb, Layout } from "@arco-design/web-react";
+import { IconMenuFold, IconMenuUnfold } from "@arco-design/web-react/icon";
 import TopHeader from "./components/TopHeader";
 import Aside from "./components/Aside";
 import styled from "@emotion/styled";
 const Sider = Layout.Sider;
 const Footer = Layout.Footer;
 const Content = Layout.Content;
-
 
 const CollapseButton = styled.div`
   height: 24px;
@@ -27,12 +26,11 @@ const CollapseButton = styled.div`
   }
 `;
 
-
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <TopHeader />
       <Layout>
         <Sider
@@ -40,7 +38,7 @@ export default function App() {
           onCollapse={() => setCollapsed(!collapsed)}
           collapsible
           trigger={null}
-          breakpoint='xl'
+          breakpoint="xl"
         >
           <Aside />
           <CollapseButton onClick={() => setCollapsed(!collapsed)}>
@@ -48,17 +46,25 @@ export default function App() {
           </CollapseButton>
         </Sider>
 
-        <Layout style={{padding: '0 20px', background: 'rgba(0, 0, 0, 0.02)'}}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
+        <Layout
+          style={{ padding: "0 20px", background: "rgba(0, 0, 0, 0.02)" }}
+        >
+          <Breadcrumb style={{ margin: "16px 0" }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <Content style={{
-            background: '#fff', padding: '1rem', border: '1px solid rgba(0, 0, 0, 0.06)',
-            boxShadow: '0 0 3px rgba(0, 0, 0, 0.03)',
-            borderRadius: '5px'
-          }}>Content</Content>
+          <Content
+            style={{
+              background: "#fff",
+              padding: "1rem",
+              border: "1px solid rgba(0, 0, 0, 0.06)",
+              boxShadow: "0 0 3px rgba(0, 0, 0, 0.03)",
+              borderRadius: "5px",
+            }}
+          >
+            Content
+          </Content>
           <Footer>Footer</Footer>
         </Layout>
       </Layout>

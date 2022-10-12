@@ -2,6 +2,7 @@ const Encore = require('@symfony/webpack-encore');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ArcoWebpackPlugin = require('@arco-plugins/webpack-react');
+const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 
 
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -46,7 +47,8 @@ Encore
   })
   .addCacheGroup('arco-design', {
     node_modules: ['@arco-design']
-  });
+  })
+  .addPlugin(new BundleStatsWebpackPlugin())
 ;
 
 if (Encore.isDev()) {
