@@ -19,6 +19,8 @@ Encore
   .cleanupOutputBeforeBuild()
   .enableBuildNotifications()
   .enableLessLoader()
+  .enablePostCssLoader()
+  .enableEslintPlugin()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .configureBabel(null)
