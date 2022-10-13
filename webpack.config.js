@@ -45,7 +45,7 @@ Encore
   }))
   .addPlugin(new ArcoWebpackPlugin())
   .addCacheGroup('common', {
-    node_modules: ['react', 'react-dom', 'react-hook-form', '@tanstack']
+    node_modules: ['react', 'react-dom', 'react-router-dom', 'react-hook-form', '@tanstack']
   })
   .addCacheGroup('arco-design', {
     node_modules: ['@arco-design']

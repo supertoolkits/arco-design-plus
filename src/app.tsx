@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Breadcrumb, Layout } from "@arco-design/web-react";
+import { Layout } from "@arco-design/web-react";
 import { IconMenuFold, IconMenuUnfold } from "@arco-design/web-react/icon";
 import TopHeader from "./components/TopHeader";
 import Aside from "./components/Aside";
 import styled from "@emotion/styled";
+import { Outlet } from "react-router-dom";
 const Sider = Layout.Sider;
 const Footer = Layout.Footer;
-const Content = Layout.Content;
 
 const CollapseButton = styled.div`
   height: 24px;
@@ -26,7 +26,7 @@ const CollapseButton = styled.div`
   }
 `;
 
-export default function App() {
+export default function AppLayout() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -49,22 +49,7 @@ export default function App() {
         <Layout
           style={{ padding: "0 20px", background: "rgba(0, 0, 0, 0.02)" }}
         >
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <Content
-            style={{
-              background: "#fff",
-              padding: "1rem",
-              border: "1px solid rgba(0, 0, 0, 0.06)",
-              boxShadow: "0 0 3px rgba(0, 0, 0, 0.03)",
-              borderRadius: "5px",
-            }}
-          >
-            Content
-          </Content>
+          <Outlet />
           <Footer>Footer</Footer>
         </Layout>
       </Layout>
