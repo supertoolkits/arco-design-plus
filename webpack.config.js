@@ -20,7 +20,6 @@ Encore
   .enableBuildNotifications()
   .enableLessLoader()
   .enablePostCssLoader()
-  .enableEslintPlugin()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .configureBabel(null)
@@ -54,7 +53,7 @@ Encore
 ;
 
 if (Encore.isDev()) {
-  Encore.addPlugin(new ReactRefreshWebpackPlugin());
+  Encore.addPlugin(new ReactRefreshWebpackPlugin())
 }
 
 const config = Encore.getWebpackConfig();

@@ -15,7 +15,7 @@ type UserDropDownProps = {
 
 export default function UserDropDown(props: UserDropDownProps): ReactElement {
   const dropList = () => (
-    <Menu onClickMenuItem={() => {}}>
+    <Menu >
       <Menu.SubMenu
         key="role"
         title={
@@ -25,7 +25,7 @@ export default function UserDropDown(props: UserDropDownProps): ReactElement {
           </Space>
         }
       >
-        <Menu.Item onClick={() => {}} key="switch role">
+        <Menu.Item key="switch role">
           <Space size={10}>
             <IconTag className="" />
             <span>Switch roles</span>

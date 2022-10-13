@@ -9,7 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { EN_US, useAppConfigStore } from "./store/app.config.store";
 import MainRouters from "./routers";
 
-const mountNode: any = document.getElementById("root");
+const mountNode = document.getElementById("root") as HTMLElement;
 const root = createRoot(mountNode);
 
 const queryClient = new QueryClient();

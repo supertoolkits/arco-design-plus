@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import {
   Badge,
   Button,
-  Dropdown,
   Input,
   Menu,
   Message,
@@ -16,7 +15,6 @@ import {
   IconLanguage,
   IconNotification,
   IconMoonFill,
-  IconSunFill,
   IconSettings,
 } from "@arco-design/web-react/icon";
 import BoringAvatar from "boring-avatars";
