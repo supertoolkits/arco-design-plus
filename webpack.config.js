@@ -20,6 +20,8 @@ Encore
   .enableBuildNotifications()
   .enableLessLoader()
   .enablePostCssLoader()
+  .enableEslintPlugin()
+  .enableForkedTypeScriptTypesChecking()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .configureBabel(null)
