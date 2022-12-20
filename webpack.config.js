@@ -22,6 +22,8 @@ Encore
   .enableLessLoader()
   .enableForkedTypeScriptTypesChecking()
   .enablePostCssLoader()
+  .enableEslintPlugin()
+  .enableForkedTypeScriptTypesChecking()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .configureBabel(null)
