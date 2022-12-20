@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "module": "es2020",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "es2017",
     "allowJs": true,
     "jsx": "react",
     "jsxImportSource": "@emotion/react",

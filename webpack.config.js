@@ -3,6 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ArcoWebpackPlugin = require('@arco-plugins/webpack-react');
 const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -19,6 +20,7 @@ Encore
   .cleanupOutputBeforeBuild()
   .enableBuildNotifications()
   .enableLessLoader()
+  .enableForkedTypeScriptTypesChecking()
   .enablePostCssLoader()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
@@ -41,6 +43,11 @@ Encore
   .addPlugin(new HtmlWebpackPlugin({
     title: "Arco design",
     template: "./index.html"
+  }))
+  .addPlugin( new CopyPlugin({
+    patterns: [
+      { from: "./src/locales", to: "locales" },
+    ],
   }))
   .addPlugin(new ArcoWebpackPlugin())
   .addCacheGroup('common', {
