@@ -1,5 +1,5 @@
-import create from "zustand";
-import { persist } from "zustand/middleware";
+import {create} from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export const EN_US = "en";
 export const ZH_HANS = "zh_hans";
@@ -27,6 +27,6 @@ const appConfigStore = (set: any) => ({
 export const useAppConfigStore = create<AppConfig>()(
   persist(appConfigStore, {
     name: "app.config",
-    getStorage: () => localStorage,
+    storage: createJSONStorage(() => localStorage),
   })
 );

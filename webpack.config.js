@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ArcoWebpackPlugin = require('@arco-plugins/webpack-react');
 const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -37,7 +39,7 @@ Encore
       {
         loader: require.resolve('babel-loader'),
         options: {
-          plugins: [Encore.isDev() && require.resolve('react-refresh/babel')].filter(Boolean),
+          plugins: [Encore.isDevServer() && require.resolve('react-refresh/babel')].filter(Boolean),
         },
       },
     ];
@@ -51,19 +53,22 @@ Encore
       { from: "./src/locales", to: "locales" },
     ],
   }))
+  .addPlugin(new webpack.EnvironmentPlugin(['NODE_ENV']))
+  .when((Encore) => Encore.isProduction(), (Encore) => Encore.addPlugin(new WorkboxPlugin.GenerateSW({
+    clientsClaim: true,
+    skipWaiting: true,
+    // maximumFileSizeToCacheInBytes: 8097152,
+  })))
   .addPlugin(new ArcoWebpackPlugin())
+  .addPlugin(new BundleStatsWebpackPlugin())
+  .when((Encore) => Encore.isDevServer(), (Encore) => Encore.addPlugin(new ReactRefreshWebpackPlugin()))
   .addCacheGroup('common', {
     node_modules: ['react', 'react-dom', 'react-router-dom', 'react-hook-form', '@tanstack']
   })
   .addCacheGroup('arco-design', {
     node_modules: ['@arco-design']
   })
-  .addPlugin(new BundleStatsWebpackPlugin())
 ;
-
-if (Encore.isDev()) {
-  Encore.addPlugin(new ReactRefreshWebpackPlugin())
-}
 
 const config = Encore.getWebpackConfig();
 

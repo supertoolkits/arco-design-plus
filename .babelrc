@@ -12,7 +12,6 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "macros",
     "@emotion",
     [
       "babel-plugin-import",
